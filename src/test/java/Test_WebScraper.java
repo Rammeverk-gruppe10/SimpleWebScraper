@@ -96,13 +96,24 @@ public class Test_WebScraper {
 
     @Test void webScraper_using_file_getHtmlElementsUsingSelector_correct() {
         HtmlElements elements = scraperFile.getHtmlElementsUsingSelector("div h2");
-        assertEquals(elements.get(0).getTagName(), "h2");
+        assertEquals(elements.get(0).getText(), "h2");
     }
 
     @Test void webScraper_using_file_getHtmlElementsUsingSelector_incorrect() {
         HtmlElements elements = scraperFile.getHtmlElementsUsingSelector("div h2");
-        assertNotEquals(elements.get(0).getTagName(), "fail");
+        assertNotEquals(elements.get(0).getText(), "fail");
     }
 
+    @Test void webScraper_using_file_getHtmlElementsByXpath_correct() {
+        HtmlElements elements = scraperFile.getHtmlElementsByXpath("//section/p");
+        assertEquals(elements.get(0).getText(), "Hei 0");
+        assertEquals(elements.get(1).getText(), "Hei 1");
+    }
+
+    @Test void webScraper_using_file_getHtmlElementsByXpath_incorrect() {
+        HtmlElements elements = scraperFile.getHtmlElementsByXpath("//section/p");
+        assertNotEquals(elements.get(0).getText(), "Test123");
+        assertNotEquals(elements.get(1).getText(), "Dummy");
+    }
 
 }
