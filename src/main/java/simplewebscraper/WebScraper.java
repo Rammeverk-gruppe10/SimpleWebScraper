@@ -111,11 +111,6 @@ public class WebScraper {
         return document.title();
     }
 
-    private String elementToString(HtmlElement element) {
-        if (element == null)
-            return "";
-        return element.getText();
-    }
 }
 
 
