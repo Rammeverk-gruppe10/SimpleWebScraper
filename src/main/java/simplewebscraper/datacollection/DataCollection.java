@@ -205,6 +205,13 @@ public class DataCollection {
         data = new HashMap<>();
     }
 
+    // NEW METHOD
+    public List<String> getDataAsList(String columnName) throws InvalidColumnException {
+        if (!columns.containsKey(columnName))
+            throw new InvalidColumnException("Column does not exist");
+        return columns.get(columnName);
+    }
+
     /**
      * Writes data to a JSON-file.
      *
