@@ -13,12 +13,12 @@ public class Test_DataCollection {
     DataCollection collection = DataCollection.create(scraperFile);
 
     @Test
-    public void create_column_ok() throws InvalidColumnException {
+    public void create_column_ok() {
         assertDoesNotThrow(() -> collection.createColumn("test"));
     }
 
     @Test
-    public void create_column_throw_exception() throws InvalidColumnException {
+    public void create_column_throws_exception() throws InvalidColumnException {
         collection.createColumn("test");
         assertThrows(InvalidColumnException.class, () -> collection.createColumn("test"));
     }
@@ -28,6 +28,46 @@ public class Test_DataCollection {
         WebScraper scraper = WebScraper.get("https://www.hiof.no");
         assertDoesNotThrow(() -> collection.setWebScraper(scraper));
     }
+
+    @Test
+    public void createColumnAndAddData_method_usingHtmlElements_ok() {
+        assertDoesNotThrow(() -> collection.createColumnAndAddData("test", scraperFile.getHtmlElementsByTag("h1")));
+    }
+
+    @Test
+    public void createColumnAndAddData_method_usingHtmlElements_throws_exception() throws InvalidColumnException {
+        collection.createColumnAndAddData("test", scraperFile.getHtmlElementsByTag("h1"));
+        assertThrows(InvalidColumnException.class, () -> collection.createColumnAndAddData("test", scraperFile.getHtmlElementsByTag("h1")));
+    }
+
+    @Test
+    public void createColumnAndAddData_method_usingXpath_ok() {
+        assertDoesNotThrow(() -> collection.createColumnAndAddData("test", "//section/p"));
+    }
+
+    @Test
+    public void createColumnAndAddData_method_usingXpath_throws_exception() throws InvalidColumnException {
+        collection.createColumnAndAddData("test", "//section/p");
+        assertThrows(InvalidColumnException.class, () -> collection.createColumnAndAddData("test", "//section/p"));
+    }
+
+    @Test
+    public void createColumnAndAddDataLocation_method_ok() {
+        assertDoesNotThrow(() -> collection.createColumnAndAddDataLocation("testColumn",
+                scraper -> scraper.getHtmlElementsByTag("h2")));
+    }
+
+    @Test
+    public void createColumnAndAddDataLocation_method_throws_exception() throws InvalidColumnException {
+        collection.createColumnAndAddDataLocation("testColumn",
+                scraper -> scraper.getHtmlElementsByTag("h2"));
+        assertThrows(InvalidColumnException.class, () -> collection.createColumnAndAddDataLocation("testColumn",
+                scraper -> scraper.getHtmlElementsByTag("h2")));
+    }
+
+
+
+
 
 
 }
