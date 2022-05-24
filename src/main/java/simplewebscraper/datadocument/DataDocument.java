@@ -12,39 +12,39 @@ import java.util.List;
 public class DataDocument {
     DataDocumentBackend backend;
 
-    HashMap<String, HtmlElements> fields;
-
+    HashMap<String, HtmlElements> fieldsHtmlElements;
+    HashMap<String, List<HtmlElement>> fieldsHtmlElement;
 
     public DataDocument(DataDocumentBackend backend) {
         this.backend = backend;
-        this.fields = new HashMap<>();
+        this.fieldsHtmlElements = new HashMap<>();
+        this.fieldsHtmlElement = new HashMap<>();
     }
 
     public void addField(String fieldName, String xpath) throws InvalidColumnException {
-        if (!fields.containsKey(fieldName))
-            fields.put(fieldName, backend.getData(xpath));
+        if (!fieldsHtmlElements.containsKey(fieldName))
+            fieldsHtmlElements.put(fieldName, backend.getData(xpath));
         else
             throw new InvalidColumnException("Field already exists");
-
     }
 
     public void addField(String fieldName, DataCollector collector) throws InvalidColumnException {
-        if (!fields.containsKey(fieldName))
-            fields.put(fieldName, backend.getData(collector));
+        if (!fieldsHtmlElements.containsKey(fieldName))
+            fieldsHtmlElements.put(fieldName, backend.getData(collector));
         else
             throw new InvalidColumnException("Field already exists");
-
     }
+    
 
     // Test
     public HashMap<String, List<String>> getCollection() {
         HashMap<String, List<String>> documentData = new HashMap<>();
-        fields.forEach(
+        fieldsHtmlElements.forEach(
                 (key, value)
                         -> {
                     if (!documentData.containsKey(key))
                         documentData.put(key, new ArrayList<>());
-                        documentData.get(key).addAll(fields.get(key).toListAsString());
+                        documentData.get(key).addAll(fieldsHtmlElements.get(key).toListAsString());
                 }
         );
         return documentData;
@@ -52,7 +52,7 @@ public class DataDocument {
 
     // For testing only
     public void testWrite() {
-        fields.forEach(
+        fieldsHtmlElements.forEach(
                 (key, value)
                         -> {
                     for (HtmlElement element : value){
@@ -61,5 +61,7 @@ public class DataDocument {
                 }
                 );
     }
+
+
 
 }
