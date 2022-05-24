@@ -34,10 +34,9 @@ public class DataDocument {
         else
             throw new InvalidColumnException("Field already exists");
     }
-    
 
     // Test
-    public HashMap<String, List<String>> getCollection() {
+    public HashMap<String, List<String>> getData() {
         HashMap<String, List<String>> documentData = new HashMap<>();
         fieldsHtmlElements.forEach(
                 (key, value)
@@ -48,6 +47,14 @@ public class DataDocument {
                 }
         );
         return documentData;
+    }
+
+    public List<String> getDataByFieldName(String fieldName) throws InvalidColumnException {
+        ArrayList<String> text = new ArrayList<>();
+        if (!fieldsHtmlElements.containsKey(fieldName))
+            throw new InvalidColumnException("Field does not exist");
+
+        return fieldsHtmlElements.get(fieldName).toListAsString();
     }
 
     // For testing only
