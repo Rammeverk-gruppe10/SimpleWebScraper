@@ -73,7 +73,7 @@ public class DataDocument {
 
     public String getDataAsJson() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(fieldsHtmlElements);
+        return gson.toJson(getData());
     }
 
 
