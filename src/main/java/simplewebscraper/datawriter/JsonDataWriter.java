@@ -38,18 +38,18 @@ public class JsonDataWriter implements DataWriter {
         StringBuilder sb = new StringBuilder();
 
         JSONArray ja = new JSONArray();
-        for (String key : columnNames) {
+        for (String key : columns.keySet()) {
             ja.put(key);
         }
 
         int max = 0;
-        for (String s : columnNames) {
+        for (String s : columns.keySet()) {
             if (columns.get(s).size() >= max)
                 max = columns.get(s).size();
         }
 
         for (int i = 0; i < max; i++) {
-            for (String s : columnNames) {
+            for (String s : columns.keySet()) {
                 if (columns.get(s).get(i) != null)
                     dataContent.add(columns.get(s).get(i));
                 else
