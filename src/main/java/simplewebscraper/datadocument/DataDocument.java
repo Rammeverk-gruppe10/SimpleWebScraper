@@ -1,5 +1,6 @@
 package simplewebscraper.datadocument;
 
+import simplewebscraper.DataCollector;
 import simplewebscraper.HtmlElement;
 import simplewebscraper.HtmlElements;
 import simplewebscraper.InvalidColumnException;
@@ -16,9 +17,20 @@ public class DataDocument {
         this.fields = new HashMap<>();
     }
 
-    public void addField(String fieldName) {
+    public void addField(String fieldName, String xpath) {
         if (!fields.containsKey(fieldName))
-            fields.put(fieldName, backend.getData(fieldName));
+            fields.put(fieldName, backend.getData(xpath));
+        else
+            try {
+                throw new InvalidColumnException("Field already exists");
+            } catch (InvalidColumnException e) {
+                e.printStackTrace();
+            }
+    }
+
+    public void addField(String fieldName, DataCollector collector) {
+        if (!fields.containsKey(fieldName))
+            fields.put(fieldName, backend.getData(collector));
         else
             try {
                 throw new InvalidColumnException("Field already exists");
