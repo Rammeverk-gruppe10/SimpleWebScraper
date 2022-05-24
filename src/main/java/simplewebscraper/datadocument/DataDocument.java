@@ -1,5 +1,7 @@
 package simplewebscraper.datadocument;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import simplewebscraper.DataCollector;
 import simplewebscraper.HtmlElement;
 import simplewebscraper.HtmlElements;
@@ -67,6 +69,11 @@ public class DataDocument {
                     }
                 }
                 );
+    }
+
+    public String getDataAsJson() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(fieldsHtmlElements);
     }
 
 
