@@ -39,6 +39,7 @@ public class DataDocument {
             }
     }
 
+    // Test
     public HashMap<String, HtmlElements> getCollection() {
         return fields;
     }
