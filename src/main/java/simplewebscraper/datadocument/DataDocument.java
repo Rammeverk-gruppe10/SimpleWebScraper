@@ -39,6 +39,10 @@ public class DataDocument {
             }
     }
 
+    public HashMap<String, HtmlElements> getCollection() {
+        return fields;
+    }
+
     // For testing only
     public void testWrite() {
         fields.forEach(
