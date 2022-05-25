@@ -15,5 +15,12 @@ public interface DataWriter {
      * @param columns     the columns
      */
     void writeDataToFile(ArrayList<String> columnNames, HashMap<String, List<String>> columns);
+
+    /**
+     * Data as string string.
+     *
+     * @param fields the fields
+     * @return the string in json format
+     */
     String dataAsString(HashMap<String, List<String>> fields);
 }
