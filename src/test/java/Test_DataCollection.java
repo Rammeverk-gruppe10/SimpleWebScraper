@@ -87,14 +87,31 @@ public class Test_DataCollection {
     }
 
     @Test
-    public void addDataLocationToExistingColumn_method_ok() throws InvalidColumnException {
+    public void addDataLocationToExistingColumn_method_ok() {
         assertDoesNotThrow(() -> collection.addDataLocationToExistingColumn("testCol",
                 scraper -> scraper.getHtmlElementsByTag("h2")));
-        collection.collectData();
-//        String[] a = new String[] {"Hello, test!", "h2"};
-//        System.out.println(collection.getDataAsList("testCol"));
-////        assertArrayEquals(collection.getDataAsList("testCol").toArray(), a);
     }
+
+    @Test
+    public void addDataLocationToExistingColumn_method_throws_exception() {
+        assertThrows(InvalidColumnException.class, () -> collection.addDataLocationToExistingColumn("testCol1",
+                scraper -> scraper.getHtmlElementsByTag("h2")));
+    }
+
+    @Test
+    public void addDataToExistingColumn_method_ok() throws InvalidColumnException {
+        assertDoesNotThrow(() -> collection.addDataToExistingColumn("testCol", scraperFile.getHtmlElementsByTag("h2")));
+        collection.collectData();
+        assertEquals(collection.getDataAsList("testCol").get(0), "h2");
+    }
+
+    @Test
+    public void addDataToExistingColumn_method_throws_exception(){
+        assertThrows(InvalidColumnException.class, () -> collection.addDataToExistingColumn("testCol123", scraperFile.getHtmlElementsByTag("h2")));
+    }
+
+
+
 
 
 
