@@ -4,6 +4,7 @@ import simplewebscraper.*;
 import simplewebscraper.datawriter.CsvDataWriter;
 import simplewebscraper.datawriter.DataWriter;
 import simplewebscraper.datawriter.JsonDataWriter;
+import simplewebscraper.exception.InvalidColumnException;
 
 import java.util.ArrayList;
 import java.util.HashMap;

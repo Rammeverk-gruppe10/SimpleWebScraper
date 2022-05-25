@@ -5,7 +5,8 @@ import com.google.gson.GsonBuilder;
 import simplewebscraper.DataCollector;
 import simplewebscraper.HtmlElement;
 import simplewebscraper.HtmlElements;
-import simplewebscraper.InvalidColumnException;
+import simplewebscraper.exception.FieldNotFoundException;
+import simplewebscraper.exception.InvalidColumnException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,18 +24,18 @@ public class DataDocument {
         this.fieldsHtmlElement = new HashMap<>();
     }
 
-    public void addField(String fieldName, String xpath) throws InvalidColumnException {
+    public void addField(String fieldName, String xpath) throws FieldNotFoundException {
         if (!fieldsHtmlElements.containsKey(fieldName))
             fieldsHtmlElements.put(fieldName, backend.getData(xpath));
         else
-            throw new InvalidColumnException("Field already exists");
+            throw new FieldNotFoundException("Field already exists");
     }
 
-    public void addField(String fieldName, DataCollector collector) throws InvalidColumnException {
+    public void addField(String fieldName, DataCollector collector) throws FieldNotFoundException {
         if (!fieldsHtmlElements.containsKey(fieldName))
             fieldsHtmlElements.put(fieldName, backend.getData(collector));
         else
-            throw new InvalidColumnException("Field already exists");
+            throw new FieldNotFoundException("Field already exists");
     }
 
     // Test
@@ -51,10 +52,10 @@ public class DataDocument {
         return documentData;
     }
 
-    public List<String> getDataByFieldName(String fieldName) throws InvalidColumnException {
+    public List<String> getDataByFieldName(String fieldName) throws FieldNotFoundException {
         ArrayList<String> text = new ArrayList<>();
         if (!fieldsHtmlElements.containsKey(fieldName))
-            throw new InvalidColumnException("Field does not exist");
+            throw new FieldNotFoundException("Field does not exist");
 
         return fieldsHtmlElements.get(fieldName).toListAsString();
     }
@@ -75,7 +76,4 @@ public class DataDocument {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(getData());
     }
-
-
-
 }

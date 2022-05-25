@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import simplewebscraper.InvalidColumnException;
+import simplewebscraper.exception.InvalidColumnException;
 import simplewebscraper.WebScraper;
 import simplewebscraper.datacollection.DataCollection;
 

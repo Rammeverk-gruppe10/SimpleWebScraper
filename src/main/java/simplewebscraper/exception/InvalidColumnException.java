@@ -1,4 +1,4 @@
-package simplewebscraper;
+package simplewebscraper.exception;
 
 /**
  * The type Invalid column exception.
