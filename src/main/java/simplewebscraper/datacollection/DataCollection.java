@@ -135,6 +135,8 @@ public class DataCollection {
         this.columns.put(columnName, dataLocation);
     }
 
+
+    // BUG if data not already is collected using - collectData()
     /**
      * Append data to existing column.
      *
