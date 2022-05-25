@@ -12,22 +12,18 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * The type Data document.
+ * Class to store data from a site as a document.
  */
 public class DataDocument {
     /**
-     * The Backend.
+     * The Backend Class needed to getData.
      */
     DataDocumentBackend backend;
 
     /**
-     * The Fields html elements.
+     * HashMap to store fields and HtmlElements (data) in the document.
      */
     HashMap<String, HtmlElements> fieldsHtmlElements;
-    /**
-     * The Fields html element.
-     */
-    HashMap<String, List<HtmlElement>> fieldsHtmlElement;
 
     /**
      * Instantiates a new Data document.
@@ -37,11 +33,10 @@ public class DataDocument {
     public DataDocument(DataDocumentBackend backend) {
         this.backend = backend;
         this.fieldsHtmlElements = new HashMap<>();
-        this.fieldsHtmlElement = new HashMap<>();
     }
 
     /**
-     * Add field.
+     * Add field and get data using xpath.
      *
      * @param fieldName the field name
      * @param xpath     the xpath
@@ -55,10 +50,15 @@ public class DataDocument {
     }
 
     /**
-     * Add field.
+     * Add field and add data using IDataCollector (lambda expression).
      *
      * @param fieldName the field name
      * @param collector the collector
+     * <code>WebScraper scraper = WebScraper.get("https://www.hiof.no");
+     *         DataDocumentBackend backend = new DataDocumentBackend(scraper);
+     *         DataDocument document = new DataDocument(backend);
+     *         document.addField("Arrangementer", "//a[@class='vrtx-event-component-title summary']");
+     * </code>
      * @throws FieldNotFoundException the field not found exception
      */
     public void addField(String fieldName, IDataCollector collector) throws FieldNotFoundException {
@@ -70,9 +70,9 @@ public class DataDocument {
 
 
     /**
-     * Gets data.
+     * Gets hashmap of collection of data.
      *
-     * @return the data
+     * @return Hashmap with fields and data (String).
      */
     public HashMap<String, List<String>> getData() {
         HashMap<String, List<String>> documentData = new HashMap<>();
@@ -88,10 +88,10 @@ public class DataDocument {
     }
 
     /**
-     * Gets data by field name.
+     * Gets data by field name as a list of strings.
      *
      * @param fieldName the field name
-     * @return the data by field name
+     * @return the data as list of strings by field name
      * @throws FieldNotFoundException the field not found exception
      */
     public List<String> getDataByFieldName(String fieldName) throws FieldNotFoundException {
@@ -117,7 +117,7 @@ public class DataDocument {
     }
 
     /**
-     * Gets data as json string.
+     * Gets data in json format as string.
      *
      * @return the data as json string
      */
