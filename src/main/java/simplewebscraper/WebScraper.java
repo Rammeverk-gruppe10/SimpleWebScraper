@@ -3,7 +3,7 @@ package simplewebscraper;
 import java.io.File;
 
 /**
- * The type Web scraper.
+ * The core class to scrape websites including functionality to get HtmlElement(s) and data from a HTML document.
  */
 public class WebScraper {
     private final IHtmlDocument document;
@@ -20,7 +20,7 @@ public class WebScraper {
      * Get web scraper.
      *
      * @param url Url to page
-     * @return the web scraper
+     * @return WebScraper using url
      */
     public static WebScraper get(String url) {
         return new WebScraper(url);
@@ -30,17 +30,17 @@ public class WebScraper {
      * Get web scraper.
      *
      * @param file the file
-     * @return the web scraper
+     * @return WebScraper using file
      */
     public static WebScraper get(File file) {
         return new WebScraper(file);
     }
 
     /**
-     * Gets elements by tag.
+     * Gets HtmlElements by tag.
      *
      * @param tag the tag
-     * @return the elements by tag
+     * @return HtmlElements by tag
      */
     public HtmlElements getHtmlElementsByTag(String tag)
     {
@@ -63,10 +63,10 @@ public class WebScraper {
     }
 
     /**
-     * Gets element by id.
+     * Gets HtmlElement by id.
      *
      * @param id the id
-     * @return the element by id
+     * @return the HtmlElement by id
      */
     public HtmlElement getHtmlElementById(String id)
     {
@@ -74,11 +74,11 @@ public class WebScraper {
     }
 
     /**
-     * Gets elements by attribute and value.
+     * Gets HtmlElements by attribute and value.
      *
      * @param attr  the attr
      * @param value the value
-     * @return the elements by attribute and value
+     * @return HtmlElements that contains attribute equal to value
      */
     public HtmlElements getHtmlElementsByAttributeAndValue(String attr, String value)
     {
