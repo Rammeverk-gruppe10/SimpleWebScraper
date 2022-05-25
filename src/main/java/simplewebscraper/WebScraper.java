@@ -6,7 +6,7 @@ import java.io.File;
  * The type Web scraper.
  */
 public class WebScraper {
-    private final HtmlDocument document;
+    private final IHtmlDocument document;
 
     private WebScraper(String url) {
         document = new HtmlDocument(url);

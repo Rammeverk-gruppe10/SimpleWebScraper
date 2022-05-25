@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * The type Html document.
  */
-public class HtmlDocument {
+public class HtmlDocument implements IHtmlDocument {
     /**
      * The Document.
      */
@@ -70,8 +70,7 @@ public class HtmlDocument {
      * @param id the id
      * @return the html element by id
      */
-    public HtmlElement getHtmlElementById(String id)
-    {
+    public HtmlElement getHtmlElementById(String id) {
         return new HtmlElement(document.getElementById(id));
     }
 
@@ -104,8 +103,7 @@ public class HtmlDocument {
      * @param text the text
      * @return the html elements
      */
-    public HtmlElements getHtmlElementsUsingSelector(String text)
-    {
+    public HtmlElements getHtmlElementsUsingSelector(String text) {
         return getElements(document.select(text));
     }
 

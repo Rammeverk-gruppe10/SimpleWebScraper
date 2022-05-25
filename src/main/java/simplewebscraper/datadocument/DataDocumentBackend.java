@@ -1,10 +1,8 @@
 package simplewebscraper.datadocument;
 
-import simplewebscraper.DataCollector;
+import simplewebscraper.IDataCollector;
 import simplewebscraper.HtmlElements;
 import simplewebscraper.WebScraper;
-
-import java.util.HashMap;
 
 
 public class DataDocumentBackend {
@@ -15,7 +13,7 @@ public class DataDocumentBackend {
         this.scraper = scraper;
     }
 
-    private HtmlElements collectData(DataCollector collector) {
+    private HtmlElements collectData(IDataCollector collector) {
         return collector.collectHtmlElements(scraper);
     }
 
@@ -24,7 +22,7 @@ public class DataDocumentBackend {
     }
 
 
-    public HtmlElements getData(DataCollector dataCollector) {
+    public HtmlElements getData(IDataCollector dataCollector) {
         return dataCollector.collectHtmlElements(scraper);
     }
 

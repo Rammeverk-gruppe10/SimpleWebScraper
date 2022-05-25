@@ -2,11 +2,10 @@ package simplewebscraper.datadocument;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import simplewebscraper.DataCollector;
+import simplewebscraper.IDataCollector;
 import simplewebscraper.HtmlElement;
 import simplewebscraper.HtmlElements;
 import simplewebscraper.exception.FieldNotFoundException;
-import simplewebscraper.exception.InvalidColumnException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +30,7 @@ public class DataDocument {
             throw new FieldNotFoundException("Field already exists");
     }
 
-    public void addField(String fieldName, DataCollector collector) throws FieldNotFoundException {
+    public void addField(String fieldName, IDataCollector collector) throws FieldNotFoundException {
         if (!fieldsHtmlElements.containsKey(fieldName))
             fieldsHtmlElements.put(fieldName, backend.getData(collector));
         else

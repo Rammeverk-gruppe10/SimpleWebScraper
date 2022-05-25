@@ -1,5 +1,5 @@
 package simplewebscraper;
 
-public interface DataCollector {
+public interface IDataCollector {
     HtmlElements collectHtmlElements(WebScraper scraper);
 }

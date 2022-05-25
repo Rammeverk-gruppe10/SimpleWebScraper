@@ -25,7 +25,7 @@ public class DataCollection {
     /**
      * The Data.
      */
-    HashMap<String, DataCollector> data;
+    HashMap<String, IDataCollector> data;
     /**
      * The Web scraper.
      */
@@ -109,7 +109,7 @@ public class DataCollection {
      * @param collector  the collector
      * @throws InvalidColumnException the invalid column exception
      */
-    public void createColumnAndAddDataLocation(String columnName, DataCollector collector) throws InvalidColumnException {
+    public void createColumnAndAddDataLocation(String columnName, IDataCollector collector) throws InvalidColumnException {
         if (this.columns.containsKey(columnName))
             throw new InvalidColumnException("Column already exists");
 
@@ -127,7 +127,7 @@ public class DataCollection {
      * @param webScraper the web scraper
      * @throws InvalidColumnException the invalid column exception
      */
-    public void createColumnAndAddDataLocation(String columnName, DataCollector collector, WebScraper webScraper) throws InvalidColumnException {
+    public void createColumnAndAddDataLocation(String columnName, IDataCollector collector, WebScraper webScraper) throws InvalidColumnException {
         if (columns.containsKey(columnName))
             throw new InvalidColumnException("Column already exists");
 
@@ -145,7 +145,7 @@ public class DataCollection {
      * @param collector  the collector
      * @throws InvalidColumnException the invalid column exception
      */
-    public void addDataLocationToExistingColumn(String columnName, DataCollector collector) throws InvalidColumnException {
+    public void addDataLocationToExistingColumn(String columnName, IDataCollector collector) throws InvalidColumnException {
         if (columns.containsKey(columnName)) {
             data.put(columnName, collector);
         } else
