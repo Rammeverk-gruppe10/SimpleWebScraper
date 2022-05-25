@@ -64,6 +64,11 @@ public class CsvDataWriter implements DataWriter {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public String dataAsString(HashMap<String, List<String>> fields) {
+        return "Not implemented";
+    }
 }
 
 

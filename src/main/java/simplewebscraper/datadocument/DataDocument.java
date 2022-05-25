@@ -1,10 +1,10 @@
 package simplewebscraper.datadocument;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import simplewebscraper.IDataCollector;
 import simplewebscraper.HtmlElement;
 import simplewebscraper.HtmlElements;
+import simplewebscraper.datawriter.DataWriter;
+import simplewebscraper.datawriter.JsonDataWriter;
 import simplewebscraper.exception.FieldNotFoundException;
 
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class DataDocument {
             throw new FieldNotFoundException("Field already exists");
     }
 
-    // Test
+
     public HashMap<String, List<String>> getData() {
         HashMap<String, List<String>> documentData = new HashMap<>();
         fieldsHtmlElements.forEach(
@@ -59,8 +59,7 @@ public class DataDocument {
         return fieldsHtmlElements.get(fieldName).toListAsString();
     }
 
-    // For testing only
-    public void testWrite() {
+    public void printFields() {
         fieldsHtmlElements.forEach(
                 (key, value)
                         -> {
@@ -71,8 +70,8 @@ public class DataDocument {
                 );
     }
 
-    public String getDataAsJson() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(getData());
+    public String getDataAsJsonString() {
+        DataWriter writer = new JsonDataWriter("null");
+        return writer.dataAsString(getData());
     }
 }

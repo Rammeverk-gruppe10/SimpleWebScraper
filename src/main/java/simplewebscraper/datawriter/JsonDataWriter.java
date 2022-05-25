@@ -1,5 +1,7 @@
 package simplewebscraper.datawriter;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.json.CDL;
 import org.json.JSONArray;
 
@@ -78,6 +80,12 @@ public class JsonDataWriter implements DataWriter {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public String dataAsString(HashMap<String, List<String>> fields) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(fields);
     }
 }
 

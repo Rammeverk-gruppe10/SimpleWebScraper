@@ -15,4 +15,5 @@ public interface DataWriter {
      * @param columns     the columns
      */
     void writeDataToFile(ArrayList<String> columnNames, HashMap<String, List<String>> columns);
+    String dataAsString(HashMap<String, List<String>> fields);
 }

@@ -7,7 +7,7 @@ import org.jsoup.nodes.Element;
  */
 public class HtmlElement {
 
-    private Element element;
+    private final Element element;
 
     public HtmlElement(Element element) {
         this.element = element;

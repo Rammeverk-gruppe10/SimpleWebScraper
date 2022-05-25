@@ -58,6 +58,10 @@ public class WebScraper {
         return document.getHtmlElementsByClassName(className);
     }
 
+    public HtmlElements getHtmlElementsThatContains(String text) {
+        return document.getHtmlElementsThatContains(text);
+    }
+
     /**
      * Gets element by id.
      *
