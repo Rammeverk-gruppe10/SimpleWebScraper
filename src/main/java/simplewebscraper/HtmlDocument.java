@@ -68,7 +68,7 @@ public class HtmlDocument implements IHtmlDocument {
      * Gets html element by id.
      *
      * @param id the id
-     * @return the html element by id
+     * @return HtmlElement by id.
      */
     public HtmlElement getHtmlElementById(String id) {
         return new HtmlElement(document.getElementById(id));
@@ -79,7 +79,7 @@ public class HtmlDocument implements IHtmlDocument {
      *
      * @param attr  the attr
      * @param value the value
-     * @return the html elements by attribute and value
+     * @return HtmlElements with attribute equal to value.
      */
     public HtmlElements getHtmlElementsByAttributeAndValue(String attr, String value)
     {
@@ -87,10 +87,10 @@ public class HtmlDocument implements IHtmlDocument {
     }
 
     /**
-     * Gets html elements that contains.
+     * Gets html elements that contains text.
      *
      * @param text the text
-     * @return the html elements that contains
+     * @return the html elements that contains text
      */
     public HtmlElements getHtmlElementsThatContains(String text)
     {
@@ -98,10 +98,10 @@ public class HtmlDocument implements IHtmlDocument {
     }
 
     /**
-     * Selector html elements.
+     *  Gets html elements by selector syntax
      *
      * @param text the text
-     * @return the html elements
+     * @return HtmlElements
      */
     public HtmlElements getHtmlElementsUsingSelector(String text) {
         return getElements(document.select(text));
@@ -111,16 +111,16 @@ public class HtmlDocument implements IHtmlDocument {
      * Gets html elements by xpath.
      *
      * @param xpathString the xpath string
-     * @return the html elements by xpath
+     * @return HtmlElements
      */
     public HtmlElements getHtmlElementsByXpath(String xpathString) {
         return getElements(document.selectXpath(xpathString));
     }
 
     /**
-     * Title string.
+     * Gets the title in the html scraped by WebScraper.
      *
-     * @return the string
+     * @return String of title of page.
      */
     public String title() {
         return document.title();
