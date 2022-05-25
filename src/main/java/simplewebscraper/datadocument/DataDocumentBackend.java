@@ -6,7 +6,7 @@ import simplewebscraper.WebScraper;
 
 
 /**
- * The type Data document backend.
+ * The type Data document backend. Is used to get data in DataDocument.
  */
 public class DataDocumentBackend {
 
@@ -29,10 +29,10 @@ public class DataDocumentBackend {
     }
 
     /**
-     * Gets data.
+     * Gets data as HtmlElements by using xpath syntax.
      *
      * @param xPath the x path
-     * @return the data
+     * @return the data as HtmlElements
      */
     public HtmlElements getData(String xPath) {
         return collectData(s -> s.getHtmlElementsByXpath(xPath));
@@ -40,7 +40,7 @@ public class DataDocumentBackend {
 
 
     /**
-     * Gets data.
+     * Gets data as HtmlElements by using IDataCollector (lambda expression).
      *
      * @param dataCollector the data collector
      * @return the data
