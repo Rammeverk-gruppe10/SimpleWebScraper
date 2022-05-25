@@ -137,7 +137,6 @@ public class DataCollection {
     }
 
 
-    // BUG if data not already is collected using - collectData()
     /**
      * Append data to existing column.
      *
@@ -208,7 +207,14 @@ public class DataCollection {
         data = new HashMap<>();
     }
 
-    // NEW METHOD
+
+    /**
+     * Gets data as list of strings by column name.
+     *
+     * @param columnName the column name
+     * @return the data as list of strings by column name
+     * @throws InvalidColumnException the invalid column exception
+     */
     public List<String> getDataAsList(String columnName) throws InvalidColumnException {
         if (!columns.containsKey(columnName))
             throw new InvalidColumnException("Column does not exist");
