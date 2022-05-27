@@ -108,6 +108,21 @@ public class DataCollection {
      * @param columnName the column name
      * @param collector  the collector
      * @throws InvalidColumnException the invalid column exception
+     * <pre>
+     * <code>
+     * WebScraper web = WebScraper.get("https://www.komplett.no/category/11158/datautstyr/skjermer/skjermer?nlevel=10000%C2%A710392%C2%A711158&hits=240");
+     *
+     * DataCollection dataCollection = DataCollection.create(web);
+     *
+     * dataCollection.createColumnAndAddDataLocation("ProductName", s -> s.getHtmlElementsByTag("h2"));
+     *
+     * dataCollection.createColumnAndAddDataLocation("ProductPrices", s -> s.getHtmlElementsByClassName("product-price-now"));
+     *
+     * dataCollection.createColumnAndAddDataLocation("ProductStockStatus", s -> s.getHtmlElementsByXpath("//span[@class='stockstatus-stock-details']"));
+     *
+     * dataCollection.collectData();
+     * </code>
+     * </pre>
      */
     public void createColumnAndAddDataLocation(String columnName, IDataCollector collector) throws InvalidColumnException {
         if (this.columns.containsKey(columnName))
