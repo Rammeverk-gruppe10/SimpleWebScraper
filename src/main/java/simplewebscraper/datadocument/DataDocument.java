@@ -5,7 +5,7 @@ import simplewebscraper.HtmlElement;
 import simplewebscraper.HtmlElements;
 import simplewebscraper.datawriter.DataWriter;
 import simplewebscraper.datawriter.JsonDataWriter;
-import simplewebscraper.exception.FieldNotFoundException;
+import simplewebscraper.exception.FieldException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,13 +45,13 @@ public class DataDocument {
      *
      * @param fieldName the field name
      * @param xpath     the xpath
-     * @throws FieldNotFoundException the field not found exception
+     * @throws FieldException the field not found exception
      */
-    public void addField(String fieldName, String xpath) throws FieldNotFoundException {
+    public void addField(String fieldName, String xpath) throws FieldException {
         if (!fieldsHtmlElements.containsKey(fieldName))
             fieldsHtmlElements.put(fieldName, backend.getData(xpath));
         else
-            throw new FieldNotFoundException("Field already exists");
+            throw new FieldException("Field already exists");
     }
 
     /**
@@ -59,13 +59,13 @@ public class DataDocument {
      *
      * @param fieldName the field name
      * @param collector the collector <code>WebScraper scraper = WebScraper.get("https://www.hiof.no");         DataDocumentBackend backend = new DataDocumentBackend(scraper);         DataDocument document = new DataDocument(backend);         document.addField("Arrangementer", "//a[@class='vrtx-event-component-title summary']"); </code>
-     * @throws FieldNotFoundException the field not found exception
+     * @throws FieldException the field not found exception
      */
-    public void addField(String fieldName, IDataCollector collector) throws FieldNotFoundException {
+    public void addField(String fieldName, IDataCollector collector) throws FieldException {
         if (!fieldsHtmlElements.containsKey(fieldName))
             fieldsHtmlElements.put(fieldName, backend.getData(collector));
         else
-            throw new FieldNotFoundException("Field already exists");
+            throw new FieldException("Field already exists");
     }
 
 
@@ -92,29 +92,16 @@ public class DataDocument {
      *
      * @param fieldName the field name
      * @return the data as list of strings by field name
-     * @throws FieldNotFoundException the field not found exception
+     * @throws FieldException the field not found exception
      */
-    public List<String> getDataByFieldName(String fieldName) throws FieldNotFoundException {
+    public List<String> getDataByFieldName(String fieldName) throws FieldException {
         ArrayList<String> text = new ArrayList<>();
         if (!fieldsHtmlElements.containsKey(fieldName))
-            throw new FieldNotFoundException("Field does not exist");
+            throw new FieldException("Field does not exist");
 
         return fieldsHtmlElements.get(fieldName).toListAsString();
     }
 
-    /**
-     * Print fields.
-     */
-    public void printFields() {
-        fieldsHtmlElements.forEach(
-                (key, value)
-                        -> {
-                    for (HtmlElement element : value){
-                        System.out.println(element.getText());
-                    }
-                }
-                );
-    }
 
     /**
      * Gets data in json format as string.
