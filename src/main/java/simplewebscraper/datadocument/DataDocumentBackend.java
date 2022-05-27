@@ -15,12 +15,18 @@ public class DataDocumentBackend {
      */
     WebScraper scraper;
 
+
     /**
-     * Instantiates a new Data document backend.
+     * Create DataDocumentBackend
      *
      * @param scraper the scraper
+     * @return the data document backend
      */
-    public DataDocumentBackend(WebScraper scraper) {
+    public static DataDocumentBackend create(WebScraper scraper) {
+        return new DataDocumentBackend(scraper);
+    }
+
+    private DataDocumentBackend(WebScraper scraper) {
         this.scraper = scraper;
     }
 
