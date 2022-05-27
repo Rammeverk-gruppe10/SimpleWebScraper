@@ -9,6 +9,4 @@ public interface IHtmlDocument {
     HtmlElements getHtmlElementsUsingSelector(String text);
     HtmlElements getHtmlElementsByXpath(String xpathString);
     String title();
-
-
 }

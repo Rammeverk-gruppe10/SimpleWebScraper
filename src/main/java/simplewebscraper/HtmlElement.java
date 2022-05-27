@@ -32,7 +32,7 @@ public class HtmlElement {
     }
 
     /**
-     * Attribute string.
+     * Gets the value of an attribute in Html Element.
      *
      * @param attribute the attribute
      * @return the string
