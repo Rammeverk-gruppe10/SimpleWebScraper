@@ -110,6 +110,7 @@ public class DataCollection {
      * @throws InvalidColumnException the invalid column exception
      * <pre>
      * {@code
+     *
      * WebScraper web = WebScraper.get("https://www.komplett.no/category/11158/datautstyr/skjermer/skjermer?nlevel=10000%C2%A710392%C2%A711158&hits=240");
      *
      * DataCollection dataCollection = DataCollection.create(web);
