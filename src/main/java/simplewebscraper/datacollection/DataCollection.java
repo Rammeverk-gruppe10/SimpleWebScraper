@@ -109,7 +109,7 @@ public class DataCollection {
      * @param collector  the collector
      * @throws InvalidColumnException the invalid column exception
      * <pre>
-     * <code>
+     * {@code
      * WebScraper web = WebScraper.get("https://www.komplett.no/category/11158/datautstyr/skjermer/skjermer?nlevel=10000%C2%A710392%C2%A711158&hits=240");
      *
      * DataCollection dataCollection = DataCollection.create(web);
@@ -121,6 +121,7 @@ public class DataCollection {
      * dataCollection.createColumnAndAddDataLocation("ProductStockStatus", s -> s.getHtmlElementsByXpath("//span[@class='stockstatus-stock-details']"));
      *
      * dataCollection.collectData();
+     * }
      * </code>
      * </pre>
      */
