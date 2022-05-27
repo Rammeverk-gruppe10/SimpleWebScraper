@@ -3,13 +3,13 @@ package simplewebscraper.exception;
 /**
  * The type Field not found exception.
  */
-public class FieldNotFoundException extends Exception {
+public class FieldException extends Exception {
     /**
      * Instantiates a new Field not found exception.
      *
      * @param message the message
      */
-    public FieldNotFoundException(String message) {
+    public FieldException(String message) {
         super(message);
     }
 }
