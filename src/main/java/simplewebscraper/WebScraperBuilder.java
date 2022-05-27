@@ -6,6 +6,9 @@ public class WebScraperBuilder {
     public String url;
     public File file;
 
+    public WebScraperBuilder() {
+    }
+
     public WebScraperBuilder setUrl(String url) {
         this.url = url;
         return this;
