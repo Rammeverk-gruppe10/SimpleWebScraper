@@ -116,4 +116,21 @@ public class Test_WebScraper {
         assertNotEquals(elements.get(1).getText(), "Dummy");
     }
 
+    @Test void webScraper_using_file_HtmlElement_attribute() {
+        HtmlElements elements = scraperFile.getHtmlElementsByXpath("//img");
+        HtmlElement element = elements.get(0);
+        assertEquals(element.attribute("src"), "bilde.jpg");
+        assertEquals(element.attribute("alt"), "test");
+    }
+
+    @Test void webScraper_using_file_HtmlElement_getTagName() {
+        HtmlElements elements = scraperFile.getHtmlElementsByXpath("//img");
+        HtmlElement element = elements.get(0);
+        assertEquals(element.getTagName(), "img");
+    }
+
+    @Test void webScraper_using_file_HtmlElement_getFirstElement() {
+        HtmlElements elements = scraperFile.getHtmlElementsByXpath("//img");
+        assertEquals(elements.getFirstElement().getTagName(), "img");
+    }
 }
