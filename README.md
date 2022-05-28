@@ -80,6 +80,8 @@ dataCollection.collectData();
 dataCollection.writeToCSV("monitors.csv");
 ```
 
+See Javadoc for full documentation: https://javadoc.jitpack.io/com/github/Rammeverk-gruppe10/SimpleWebScraper/cf13ab2132/javadoc/
+
 
 
 
