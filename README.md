@@ -1,12 +1,10 @@
 # SimpleWebScraper - Getting started
 
 ## Intro
-___
 SimpleWebScraper is a Java Framework built to scrape content from an HTML document using simple java code. The API provides the most used HTML5 DOM methods, including Xpath to fetch data. 
 The framework also offers functionality to store scraped data and convert the data to formats such as CSV and JSON.
 
 ## Import the framework
-___
 The framework can be imported in multiple projects:
 
 1. Java projects - using jar file
