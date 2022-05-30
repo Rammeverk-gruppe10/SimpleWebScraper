@@ -1,7 +1,6 @@
 package simplewebscraper.datadocument;
 
 import simplewebscraper.IDataCollector;
-import simplewebscraper.HtmlElement;
 import simplewebscraper.HtmlElements;
 import simplewebscraper.datawriter.DataWriter;
 import simplewebscraper.datawriter.JsonDataWriter;
@@ -58,7 +57,7 @@ public class DataDocument {
      * Add field and add data using IDataCollector (lambda expression).
      *
      * @param fieldName the field name
-     * @param collector the collector
+     * @param collector the collector <code>WebScraper scraper = WebScraper.get("https://www.hiof.no");         DataDocumentBackend backend = new DataDocumentBackend(scraper);         DataDocument document = new DataDocument(backend);         document.addField("Arrangementer", "//a[@class='vrtx-event-component-title summary']"); </code>
      * @throws FieldException the field not found exception
      */
     public void addField(String fieldName, IDataCollector collector) throws FieldException {
