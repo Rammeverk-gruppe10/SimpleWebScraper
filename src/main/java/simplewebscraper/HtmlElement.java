@@ -9,6 +9,11 @@ public class HtmlElement {
 
     private final Element element;
 
+    /**
+     * Instantiates a new Html element.
+     *
+     * @param element the element
+     */
     public HtmlElement(Element element) {
         this.element = element;
     }

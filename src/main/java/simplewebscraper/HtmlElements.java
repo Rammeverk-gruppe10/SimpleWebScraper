@@ -45,6 +45,11 @@ public class HtmlElements extends ArrayList<HtmlElement> {
         return elementsText;
     }
 
+    /**
+     * Gets first HtmlElement in HtmlElements.
+     *
+     * @return the first Html ELement
+     */
     public HtmlElement getFirstElement() {
         return this.get(0);
     }

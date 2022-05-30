@@ -58,6 +58,12 @@ public class WebScraper {
         return document.getHtmlElementsByClassName(className);
     }
 
+    /**
+     * Gets html elements that contains.
+     *
+     * @param text the text
+     * @return the html elements that contains
+     */
     public HtmlElements getHtmlElementsThatContains(String text) {
         return document.getHtmlElementsThatContains(text);
     }
@@ -89,7 +95,7 @@ public class WebScraper {
      * Selector html elements.
      *
      * @param selector Css selector syntax
-     * @return HtmlElements
+     * @return HtmlElements html elements using selector
      */
     public HtmlElements getHtmlElementsUsingSelector(String selector)
     {
