@@ -123,7 +123,6 @@ public class DataCollection {
      *
      * dataCollection.collectData();
      * }
-     * </code>
      * </pre>
      */
     public void createColumnAndAddDataLocation(String columnName, IDataCollector collector) throws InvalidColumnException {
