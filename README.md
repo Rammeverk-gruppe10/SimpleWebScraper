@@ -25,7 +25,7 @@ repositories {
 - Add the dependency:
 ``` java
 dependencies {
-    implementation 'com.github.Rammeverk-gruppe10:SimpleWebScraper:1f4184be84'
+    implementation 'com.github.Rammeverk-gruppe10:SimpleWebScraper:1.0.1'
 }
 ```
   
@@ -48,7 +48,7 @@ ___
     <dependency>
         <groupId>com.github.Rammeverk-gruppe10</groupId>
         <artifactId>SimpleWebScraper</artifactId>
-        <version>0e7bceaa6c</version>
+        <version>1.0.1</version>
     </dependency>
 </dependencies>  
 ```
