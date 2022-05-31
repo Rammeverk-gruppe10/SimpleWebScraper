@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * The type Data collection.
+ * Class DataCollection to store scraped data
  */
 public class DataCollection {
     /**
