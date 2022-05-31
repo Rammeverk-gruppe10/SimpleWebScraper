@@ -110,9 +110,24 @@ public class Test_DataCollection {
         assertThrows(InvalidColumnException.class, () -> collection.addDataToExistingColumn("testCol123", scraperFile.getHtmlElementsByTag("h2")));
     }
 
+    @Test
+    public void addDataToColumn_method_using_string_ok() {
+        assertDoesNotThrow(() -> collection.addDataToColumn("testCol", "addedString"));
+    }
 
+    @Test
+    public void addDataToColumn_method_using_string_throws_exception() {
+        assertThrows(InvalidColumnException.class, () -> collection.addDataToColumn("test", "testAgain"));
+    }
 
+    @Test
+    public void addDataToColumn_method_using_HtmlElements_ok() {
+        assertDoesNotThrow(() -> collection.addDataToColumn("testCol", scraperFile.getHtmlElementsByClassName("classTest")));
+    }
 
-
+    @Test
+    public void addDataToColumn_method_using_HtmlElements_throws_exception() {
+        assertDoesNotThrow(() -> collection.addDataToColumn("testCol2", scraperFile.getHtmlElementsByClassName("classTest")));
+    }
 
 }
