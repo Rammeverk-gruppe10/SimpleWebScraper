@@ -184,7 +184,7 @@ public class DataCollection {
     }
 
     /**
-     * Add data to column.
+     * Add data to existing column.
      *
      * @param columnName the column name
      * @param elements   the elements
@@ -200,7 +200,7 @@ public class DataCollection {
     }
 
     /**
-     * Add data to column.
+     * Add data to existing column.
      *
      * @param columnName the column name
      * @param string     the string
@@ -213,7 +213,7 @@ public class DataCollection {
     }
 
     /**
-     * Collects data.
+     * Collects data and add to collection.
      */
     public void collectData() {
         data.forEach((key, value) -> {
