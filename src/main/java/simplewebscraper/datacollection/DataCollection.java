@@ -189,12 +189,14 @@ public class DataCollection {
      * @param columnName the column name
      * @param elements   the elements
      */
-    public void addDataToColumn(String columnName, HtmlElements elements) {
+    public void addDataToColumn(String columnName, HtmlElements elements) throws InvalidColumnException {
         if (columns.containsKey(columnName)) {
             for (HtmlElement element : elements) {
                 columns.get(columnName).add(element.getText());
             }
-        }
+        } else
+            throw new InvalidColumnException("Column does not exist");
+
     }
 
     /**
@@ -203,11 +205,11 @@ public class DataCollection {
      * @param columnName the column name
      * @param string     the string
      */
-    public void addDataToColumn(String columnName, String string) {
+    public void addDataToColumn(String columnName, String string) throws InvalidColumnException {
         if (columns.containsKey(columnName)) {
             columns.get(columnName).add(string);
         } else
-            System.out.println("Exception");
+            throw new InvalidColumnException("Column does not exist");
     }
 
     /**
