@@ -188,6 +188,7 @@ public class DataCollection {
      *
      * @param columnName the column name
      * @param elements   the elements
+     * @throws InvalidColumnException the invalid column exception
      */
     public void addDataToColumn(String columnName, HtmlElements elements) throws InvalidColumnException {
         if (columns.containsKey(columnName)) {
@@ -204,6 +205,7 @@ public class DataCollection {
      *
      * @param columnName the column name
      * @param string     the string
+     * @throws InvalidColumnException the invalid column exception
      */
     public void addDataToColumn(String columnName, String string) throws InvalidColumnException {
         if (columns.containsKey(columnName)) {
